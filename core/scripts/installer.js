@@ -479,6 +479,7 @@ class Storefront extends Abstract {
   npmBuild () {
     return new Promise((resolve, reject) => {
       Message.info('Build storefront npm...')
+      Message.info(`npm run build > ${Abstract.storefrontLogStream} 2>&1`)
 
       if (shell.exec(`npm run build > ${Abstract.storefrontLogStream} 2>&1`).code !== 0) {
         reject(new Error('Can\'t build storefront npm.', VUE_STOREFRONT_LOG_FILE))
